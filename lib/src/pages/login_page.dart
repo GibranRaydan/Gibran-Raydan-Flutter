@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_bloc/bloc/provider.dart';
+
+import 'package:login_bloc/src/pages/widgets/image_container.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -25,21 +26,31 @@ class LoginPage extends StatelessWidget {
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  buildTop(),
-                  SizedBox(height: 20),
-                  buildContactInformationRow(),
-                  SizedBox(height: 20),
-                  buildAboutContainer(),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                buildTop(),
+                buildScrollView(),
+              ],
             ),
           ),
         )
       ],
+    );
+  }
+
+  Expanded buildScrollView() {
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 10),
+            buildContactInformationRow(),
+            SizedBox(height: 10),
+            buildAboutContainer(),
+          ],
+        ),
+      ),
     );
   }
 
@@ -60,7 +71,28 @@ class LoginPage extends StatelessWidget {
           aboutContainerTitle(),
           aboutParagraph(),
           lenguagesParagraph(),
-          technologiesParagraph()
+          //technologiesParagraph(),
+          dbContainer()
+        ],
+      ),
+    );
+  }
+
+  Container dbContainer() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ImageContainer(
+            sizex: 120.0,
+            sizey: 100.0,
+            imagePath: 'assets/mysql.svg',
+          ),
+          ImageContainer(
+            sizex: 120.0,
+            sizey: 100.0,
+            imagePath: 'assets/postgresql.svg',
+          )
         ],
       ),
     );
@@ -104,38 +136,38 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Container technologiesParagraph() {
-    return Container(
-      margin: EdgeInsets.only(top: 1, left: 10, right: 255, bottom: 5),
-      child: RichText(
-          textAlign: TextAlign.left,
-          text: TextSpan(children: [
-            TextSpan(
-                text: 'Technologies:' '\n',
-                style: TextStyle(
-                    height: 2,
-                    color: Colors.black45,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400)),
-            TextSpan(
-                text: ' * DART'
-                    '\n'
-                    ' * python'
-                    '\n'
-                    ' * FLUTTER'
-                    '\n'
-                    ' * PHP'
-                    '\n'
-                    ' * JAVA'
-                    '\n'
-                    ' * MySql'
-                    '\n'
-                    ' * postgresDb'
-                    '\n',
-                style: TextStyle(color: Colors.black54)),
-          ])),
-    );
-  }
+  // Container technologiesParagraph() {
+  //   return Container(
+  //     margin: EdgeInsets.only(top: 1, left: 10, right: 255, bottom: 5),
+  //     child: RichText(
+  //         textAlign: TextAlign.left,
+  //         text: TextSpan(children: [
+  //           TextSpan(
+  //               text: 'Technologies:' '\n',
+  //               style: TextStyle(
+  //                   height: 2,
+  //                   color: Colors.black45,
+  //                   fontSize: 20,
+  //                   fontWeight: FontWeight.w400)),
+  //           TextSpan(
+  //               text: ' * DART'
+  //                   '\n'
+  //                   ' * python'
+  //                   '\n'
+  //                   ' * FLUTTER'
+  //                   '\n'
+  //                   ' * PHP'
+  //                   '\n'
+  //                   ' * JAVA'
+  //                   '\n'
+  //                   ' * MySql'
+  //                   '\n'
+  //                   ' * postgresDb'
+  //                   '\n',
+  //               style: TextStyle(color: Colors.black54)),
+  //         ])),
+  //   );
+  // }
 
   Container aboutContainerTitle() {
     return Container(
@@ -213,22 +245,20 @@ class LoginPage extends StatelessWidget {
   Container buildTop() {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(35),
-              bottomRight: Radius.circular(35)),
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(0, 169, 138, 0.8),
-                Color.fromRGBO(31, 140, 202, 1)
-              ])),
+            Color.fromRGBO(0, 169, 138, 0.8),
+            Color.fromRGBO(31, 140, 202, 1)
+          ])),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           profilePicture(),
           SizedBox(height: 10),
           profileTitle(),
+          SizedBox(height: 10),
         ],
       ),
     );
@@ -244,8 +274,6 @@ class LoginPage extends StatelessWidget {
   Container profileTitle() {
     return Container(
       color: Colors.transparent,
-      height: 130.0,
-      width: 230,
       child: RichText(
           textAlign: TextAlign.center,
           text: TextSpan(children: const <TextSpan>[
