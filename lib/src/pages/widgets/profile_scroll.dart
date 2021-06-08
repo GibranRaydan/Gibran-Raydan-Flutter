@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'widgets.dart';
 
 class ProfileScroll extends StatelessWidget {
@@ -11,8 +10,6 @@ class ProfileScroll extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 10),
-            buildContactInformationRow(),
             SizedBox(height: 10),
             buildAboutContainer(),
           ],
@@ -38,18 +35,20 @@ class ProfileScroll extends StatelessWidget {
           aboutContainerTitle(),
           aboutParagraph(),
           lenguagesParagraph(),
-          generlTitle("Front-End:"),
-          frontEndContainer(),
-          generlTitle("Back-End:"),
+          generalTitle("Back-End:", 20.0),
           programsContainer(),
-          generlTitle("DB:"),
+          generalTitle("Data bases:", 20.0),
           dbContainer(),
+          generalTitle("Front-End:", 20.0),
+          frontEndContainer(),
+          generalTitle("Cloud:", 20.0),
+          cloudContainer()
         ],
       ),
     );
   }
 
-  Container generlTitle(String text) {
+  Container generalTitle(String text, double fontSize) {
     return Container(
       margin: EdgeInsets.only(top: 2, left: 10, right: 255, bottom: 5),
       child: Row(
@@ -62,7 +61,7 @@ class ProfileScroll extends StatelessWidget {
                     style: TextStyle(
                         height: 2,
                         color: Colors.black45,
-                        fontSize: 20,
+                        fontSize: fontSize,
                         fontWeight: FontWeight.w400)),
               ])),
           Spacer()
@@ -73,6 +72,7 @@ class ProfileScroll extends StatelessWidget {
 
   Container frontEndContainer() {
     return Container(
+      margin: EdgeInsets.all(5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -88,7 +88,7 @@ class ProfileScroll extends StatelessWidget {
 
   Container dbContainer() {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.all(5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -107,8 +107,30 @@ class ProfileScroll extends StatelessWidget {
     );
   }
 
+  Container cloudContainer() {
+    return Container(
+      margin: EdgeInsets.all(5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ImageContainer(
+            sizex: 120.0,
+            sizey: 100.0,
+            imagePath: 'assets/aws.svg',
+          ),
+          ImageContainer(
+            sizex: 120.0,
+            sizey: 100.0,
+            imagePath: 'assets/google-cloud.svg',
+          )
+        ],
+      ),
+    );
+  }
+
   Container programsContainer() {
     return Container(
+      margin: EdgeInsets.all(5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -145,7 +167,7 @@ class ProfileScroll extends StatelessWidget {
           text: TextSpan(children: [
             TextSpan(
                 text:
-                    'I am a systems engineer with 1/2 years of experience in back-end software development.'
+                    'I am a systems engineer with a year and a half of experience in back-end software development.'
                     '\n',
                 style: TextStyle(color: Colors.black54)),
           ])),
@@ -155,23 +177,28 @@ class ProfileScroll extends StatelessWidget {
   Container lenguagesParagraph() {
     return Container(
       margin: EdgeInsets.only(top: 2, left: 10, right: 255, bottom: 5),
-      child: RichText(
-          textAlign: TextAlign.left,
-          text: TextSpan(children: [
-            TextSpan(
-                text: 'Languages:' '\n',
-                style: TextStyle(
-                    height: 2,
-                    color: Colors.black45,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400)),
-            TextSpan(
-                text: ' * English: B2'
-                    '\n'
-                    ' * Spanish: Native'
-                    '\n',
-                style: TextStyle(color: Colors.black54)),
-          ])),
+      child: Row(
+        children: [
+          RichText(
+              textAlign: TextAlign.left,
+              text: TextSpan(children: [
+                TextSpan(
+                    text: 'Languages:' '\n',
+                    style: TextStyle(
+                        height: 2,
+                        color: Colors.black45,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400)),
+                TextSpan(
+                    text: '* English: B2'
+                        '\n'
+                        '* Spanish: Native'
+                        '\n',
+                    style: TextStyle(
+                        color: Colors.black54, fontWeight: FontWeight.w400)),
+              ])),
+        ],
+      ),
     );
   }
 
@@ -196,55 +223,6 @@ class ProfileScroll extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-
-  Row buildContactInformationRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          color: Colors.transparent,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(
-                Icons.phone_rounded,
-                color: Color.fromRGBO(31, 140, 202, 1),
-                size: 30,
-              ),
-              SelectableText(
-                '+57 3138129220',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Color.fromRGBO(31, 140, 202, 1)),
-              )
-            ],
-          ),
-        ),
-        Divider(),
-        Container(
-          color: Colors.transparent,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(
-                Icons.email_rounded,
-                color: Color.fromRGBO(31, 140, 202, 1),
-                size: 30,
-              ),
-              SelectableText(
-                'raydan.gibran@gmail.com',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Color.fromRGBO(31, 140, 202, 1)),
-              )
-            ],
-          ),
-        ),
-      ],
     );
   }
 }

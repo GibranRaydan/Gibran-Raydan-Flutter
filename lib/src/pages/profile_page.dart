@@ -39,6 +39,8 @@ class ProfilePage extends StatelessWidget {
                 ProfileTop(
                   profilePictureUrl: 'assets/cat.jpg',
                 ),
+                ContactInformation(
+                    phone: '+57 3138129220', email: 'raydan.gibran@gmail.com'),
                 ProfileScroll(),
               ],
             ),

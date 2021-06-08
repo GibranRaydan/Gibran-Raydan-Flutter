@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return Provider(
         child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Material App',
+      title: 'Gibran Raydan App',
       initialRoute: 'login',
       routes: {
         'login': (BuildContext context) => ProfilePage(),
