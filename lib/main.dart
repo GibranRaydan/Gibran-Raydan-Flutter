@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Gibran Raydan App',
-      initialRoute: 'login',
+      initialRoute: 'profile',
       routes: {
-        'login': (BuildContext context) => ProfilePage(),
+        'profile': (BuildContext context) => ProfilePage(),
         'home': (BuildContext context) => HomePage(),
       },
       theme: ThemeData(primaryColor: Colors.orangeAccent.shade100),

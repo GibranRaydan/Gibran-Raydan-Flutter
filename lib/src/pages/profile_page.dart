@@ -8,22 +8,16 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        drawer: NavigationDrawer(),
         appBar: buildAppBar(),
         body: buildBody(),
       );
 
   AppBar buildAppBar() {
     return AppBar(
+      iconTheme: IconThemeData(color: Colors.white),
       elevation: 0.0,
       backgroundColor: Color.fromRGBO(0, 169, 138, 0.8),
-      actions: [
-        IconButton(
-            iconSize: 25,
-            color: Colors.white,
-            icon: Icon(Icons.menu_rounded),
-            onPressed: () => {}),
-        Spacer()
-      ],
     );
   }
 
