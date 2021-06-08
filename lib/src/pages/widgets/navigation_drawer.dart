@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pages.dart';
 
 class NavigationDrawer extends StatelessWidget {
   @override
@@ -30,7 +31,10 @@ class NavigationDrawer extends StatelessWidget {
                 color: Colors.white,
               ),
               title: Text('Welcome', style: TextStyle(color: Colors.white)),
-              onTap: () => {},
+              onTap: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()))
+              },
             ),
             ListTile(
               leading: Icon(Icons.verified_user, color: Colors.white),
@@ -38,7 +42,10 @@ class NavigationDrawer extends StatelessWidget {
                 'Profile',
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () => {Navigator.of(context).pop()},
+              onTap: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()))
+              },
             ),
             ListTile(
               leading: Icon(Icons.settings, color: Colors.white),

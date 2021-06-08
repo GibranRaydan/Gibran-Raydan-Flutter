@@ -10,7 +10,6 @@ class ProfileScroll extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 10),
             buildAboutContainer(),
           ],
         ),

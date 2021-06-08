@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:login_bloc/bloc/provider.dart';
+import 'widgets/navigation_drawer.dart';
+//import 'package:login_bloc/bloc/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of(context);
+    //final bloc = Provider.of(context);
     return Scaffold(
+      drawer: NavigationDrawer(),
       appBar: AppBar(
         title: Text('HomePage'),
       ),
@@ -15,9 +17,9 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Email : ${bloc?.email}'),
+          Text('Email : asdasdasdasd'),
           Divider(),
-          Text('Password : ${bloc?.password}')
+          Text('Password : asdasdasdasd')
         ],
       ),
     );

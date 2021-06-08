@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_bloc/src/pages/widgets/profile_scroll.dart';
-
-import 'widgets/widgets.dart';
+import 'widgets/navigation_drawer.dart';
+import 'widgets/profile_page_widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
