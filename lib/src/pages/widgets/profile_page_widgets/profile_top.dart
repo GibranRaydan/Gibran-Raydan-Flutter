@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_bloc/src/pages/widgets/profile_page_widgets/widgets.dart';
 
 class ProfileTop extends StatelessWidget {
   const ProfileTop({Key key, this.profilePictureUrl}) : super(key: key);
@@ -7,7 +8,6 @@ class ProfileTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
       decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -17,12 +17,16 @@ class ProfileTop extends StatelessWidget {
             Color.fromRGBO(31, 140, 202, 1)
           ])),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _profilePicture(),
+          Expanded(flex: 5, child: _profilePicture()),
           SizedBox(height: 10),
-          _profileTitle(),
-          SizedBox(height: 10),
+          Expanded(flex: 5, child: _profileTitle()),
+          Expanded(
+            flex: 2,
+            child: ContactInformation(
+                phone: '+57 3138129220', email: 'raydan.gibran@gmail.com'),
+          ),
         ],
       ),
     );
@@ -33,18 +37,15 @@ class ProfileTop extends StatelessWidget {
       height: 130.0,
       width: 130,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        //color: Colors.red,
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage(profilePictureUrl)
-        )
-      ),
+          shape: BoxShape.circle,
+          //color: Colors.red,
+          image: DecorationImage(image: AssetImage(profilePictureUrl))),
     );
   }
 
   Container _profileTitle() {
     return Container(
+      margin: EdgeInsets.only(bottom: 5),
       color: Colors.transparent,
       child: RichText(
           textAlign: TextAlign.center,

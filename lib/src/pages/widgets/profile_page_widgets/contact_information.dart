@@ -9,50 +9,53 @@ class ContactInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
-      
+      // margin: EdgeInsets.only(top: 30),
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            color: Colors.transparent,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(
-                  Icons.phone_rounded,
-                  color: Color.fromRGBO(31, 140, 202, 1),
-                  size: 30,
-                ),
-                SelectableText(
-                  phone,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Color.fromRGBO(31, 140, 202, 1)),
-                )
-              ],
+          Expanded(
+            child: Container(
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    Icons.phone_rounded,
+                    color: Color.fromRGBO(31, 140, 202, 1),
+                    size: 30,
+                  ),
+                  SelectableText(
+                    phone,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Color.fromRGBO(31, 140, 202, 1)),
+                  )
+                ],
+              ),
             ),
           ),
-          Divider(),
-          Container(
-            color: Colors.transparent,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(
-                  Icons.email_rounded,
-                  color: Color.fromRGBO(31, 140, 202, 1),
-                  size: 30,
-                ),
-                SelectableText(
-                  email,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Color.fromRGBO(31, 140, 202, 1)),
-                )
-              ],
+          Expanded(
+            child: Container(
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    Icons.email_rounded,
+                    color: Color.fromRGBO(31, 140, 202, 1),
+                    size: 30,
+                  ),
+                  SelectableText(
+                    email,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Color.fromRGBO(31, 140, 202, 1)),
+                  )
+                ],
+              ),
             ),
           ),
         ],

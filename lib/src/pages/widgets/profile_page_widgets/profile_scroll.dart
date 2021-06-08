@@ -6,7 +6,7 @@ class ProfileScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
       child: SingleChildScrollView(
         child: Column(
           children: [

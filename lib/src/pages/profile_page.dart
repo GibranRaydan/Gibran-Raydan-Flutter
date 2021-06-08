@@ -29,12 +29,12 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ProfileTop(
-                  profilePictureUrl: 'assets/cat.jpg',
+                Expanded(flex: 3,
+                  child: ProfileTop(
+                    profilePictureUrl: 'assets/cat.jpg',
+                  ),
                 ),
-                ContactInformation(
-                    phone: '+57 3138129220', email: 'raydan.gibran@gmail.com'),
-                ProfileScroll(),
+                Expanded(flex: 4, child: ProfileScroll()),
               ],
             ),
           ),
