@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:login_bloc/src/pages/widgets/image_container.dart';
+import 'widgets/widgets.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key key}) : super(key: key);
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -11,13 +11,28 @@ class LoginPage extends StatelessWidget {
         body: buildBody(),
       );
 
-  Stack buildBody() {
-    final circle = Container(
-      width: 100.0,
-      height: 100.0,
-      decoration:
-          BoxDecoration(shape: BoxShape.circle, color: Colors.lightGreenAccent),
+  AppBar buildAppBar() {
+    return AppBar(
+      elevation: 0.0,
+      backgroundColor: Color.fromRGBO(0, 169, 138, 0.8),
+      actions: [
+        IconButton(
+            iconSize: 25,
+            color: Colors.white,
+            icon: Icon(Icons.menu_rounded),
+            onPressed: () => {}),
+        Spacer()
+      ],
     );
+  }
+
+  Stack buildBody() {
+    // final circle = Container(
+    //   width: 100.0,
+    //   height: 100.0,
+    //   decoration:
+    //       BoxDecoration(shape: BoxShape.circle, color: Colors.lightGreenAccent),
+    // );
     return Stack(
       children: [
         // Positioned(top: -20.0, left: 300.0, child: circle),
@@ -71,8 +86,49 @@ class LoginPage extends StatelessWidget {
           aboutContainerTitle(),
           aboutParagraph(),
           lenguagesParagraph(),
-          //technologiesParagraph(),
-          dbContainer()
+          generlTitle("Front-End:"),
+          frontEndContainer(),
+          generlTitle("Back-End:"),
+          programsContainer(),
+          generlTitle("DB:"),
+          dbContainer(),
+        ],
+      ),
+    );
+  }
+
+  Container generlTitle(String text) {
+    return Container(
+      margin: EdgeInsets.only(top: 2, left: 10, right: 255, bottom: 5),
+      child: Row(
+        children: [
+          RichText(
+              textAlign: TextAlign.left,
+              text: TextSpan(children: [
+                TextSpan(
+                    text: text + '\n',
+                    style: TextStyle(
+                        height: 2,
+                        color: Colors.black45,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400)),
+              ])),
+          Spacer()
+        ],
+      ),
+    );
+  }
+
+  Container frontEndContainer() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ImageContainer(
+            sizex: 120.0,
+            sizey: 100.0,
+            imagePath: 'assets/flutter-logo.svg',
+          )
         ],
       ),
     );
@@ -80,6 +136,7 @@ class LoginPage extends StatelessWidget {
 
   Container dbContainer() {
     return Container(
+      margin: EdgeInsets.only(bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -93,6 +150,36 @@ class LoginPage extends StatelessWidget {
             sizey: 100.0,
             imagePath: 'assets/postgresql.svg',
           )
+        ],
+      ),
+    );
+  }
+
+  Container programsContainer() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ImageContainer(
+            sizex: 90.0,
+            sizey: 70.0,
+            imagePath: 'assets/dart.svg',
+          ),
+          ImageContainer(
+            sizex: 90.0,
+            sizey: 70.0,
+            imagePath: 'assets/python.svg',
+          ),
+          ImageContainer(
+            sizex: 90.0,
+            sizey: 70.0,
+            imagePath: 'assets/php.svg',
+          ),
+          ImageContainer(
+            sizex: 90.0,
+            sizey: 70.0,
+            imagePath: 'assets/nodejs.svg',
+          ),
         ],
       ),
     );
@@ -135,39 +222,6 @@ class LoginPage extends StatelessWidget {
           ])),
     );
   }
-
-  // Container technologiesParagraph() {
-  //   return Container(
-  //     margin: EdgeInsets.only(top: 1, left: 10, right: 255, bottom: 5),
-  //     child: RichText(
-  //         textAlign: TextAlign.left,
-  //         text: TextSpan(children: [
-  //           TextSpan(
-  //               text: 'Technologies:' '\n',
-  //               style: TextStyle(
-  //                   height: 2,
-  //                   color: Colors.black45,
-  //                   fontSize: 20,
-  //                   fontWeight: FontWeight.w400)),
-  //           TextSpan(
-  //               text: ' * DART'
-  //                   '\n'
-  //                   ' * python'
-  //                   '\n'
-  //                   ' * FLUTTER'
-  //                   '\n'
-  //                   ' * PHP'
-  //                   '\n'
-  //                   ' * JAVA'
-  //                   '\n'
-  //                   ' * MySql'
-  //                   '\n'
-  //                   ' * postgresDb'
-  //                   '\n',
-  //               style: TextStyle(color: Colors.black54)),
-  //         ])),
-  //   );
-  // }
 
   Container aboutContainerTitle() {
     return Container(
@@ -301,21 +355,6 @@ class LoginPage extends StatelessWidget {
                   letterSpacing: -0.6),
             ),
           ])),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      elevation: 0.0,
-      backgroundColor: Color.fromRGBO(0, 169, 138, 0.8),
-      actions: [
-        IconButton(
-            iconSize: 25,
-            color: Colors.white,
-            icon: Icon(Icons.menu_rounded),
-            onPressed: () => {}),
-        Spacer()
-      ],
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_bloc/src/pages/home_page.dart';
-import 'package:login_bloc/src/pages/login_page.dart';
+import 'package:login_bloc/src/pages/profile_page.dart';
 
 import 'bloc/provider.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       initialRoute: 'login',
       routes: {
-        'login': (BuildContext context) => LoginPage(),
+        'login': (BuildContext context) => ProfilePage(),
         'home': (BuildContext context) => HomePage(),
       },
       theme: ThemeData(primaryColor: Colors.orangeAccent.shade100),
